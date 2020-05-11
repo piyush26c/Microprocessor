@@ -29,4 +29,4 @@ _start:
 ; exit(0)
 	MOV RAX, 60		; system call 60 is exit
 	MOV RDI, 00 		; we want return code 0
-	syscall 			; invoke operating system to exit
+	syscall 		; invoke operating system to exit
