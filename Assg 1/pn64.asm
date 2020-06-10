@@ -60,16 +60,16 @@ _start:
 	mov		rdx,0;		; counter for	-ve nos.
 
 next_num:
-	mov		rax,[rsi]		; take no. in RAX
+	mov		rax,[rsi]	; take no. in RAX
 	Rol		rax,1		; rotate left 1 bit to check for sign bit 
 	jc		negative
 
 positive:
-	inc		rbx			; no carry, so no. is +ve
+	inc		rbx		; no carry, so no. is +ve
 	jmp		next
 
 negative:
-	inc		rdx			; carry, so no. is -ve
+	inc		rdx		; carry, so no. is -ve
 
 next:
 	add 		rsi,8		; 64 bit nos i.e. 8 bytes
@@ -81,11 +81,11 @@ next:
 
 	Print	pmsg, pmsg_len
 	mov 		rax,[p_count]		; load value of p_count in rax
-	call 	disp64_proc		; display p_count
+	call 	disp64_proc		        ; display p_count
 
 	Print	nmsg, nmsg_len
 	mov 		rax,[n_count]		; load value of n_count in rax
-	call 	disp64_proc		; display n_count
+	call 	disp64_proc		        ; display n_count
 
 	Print	nline, nline_len
 	Exit
@@ -103,12 +103,12 @@ cnt:	mov 		rdx,0			; make rdx=0 (as in div instruction rdx:rax/rbx)
 	add  	dl, 07h 
 add30:
 	add 		dl,30h			; calculate ASCII code
-	mov 		[rsi],dl			; store it in buffer
-	dec 		rsi				; point to one byte back
+	mov 		[rsi],dl		; store it in buffer
+	dec 		rsi			; point to one byte back
 
-	dec 		rcx				; decrement count
-	jnz 		cnt				; if not zero repeat
+	dec 		rcx			; decrement count
+	jnz 		cnt			; if not zero repeat
 	
-	Print 	char_ans,2		; display result on screen
+	Print 	char_ans,2		        ; display result on screen
 ret
 ;----------------------------------------------------------------
